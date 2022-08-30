@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppCustoViagem.MainPage"
+             Title="Custo de Viagem">
+
+    <StackLayout>
+        <Grid Padding="7">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2.5*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!-- Título DADOS DA VIAGEM -->
+            <Label Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="0" Text="Dados da Viagem" Style="{StaticResource Titulo}" />
+
+            <!-- Input Cidade de Origem -->
+            <Label Grid.Row="1" Grid.Column="0" Text="Origem:" />
+            <Entry Grid.Row="1" Grid.Column="1" x:Name="txt_origem" Placeholder="Cidade de Origem" Keyboard="Text" />
+
+            <!-- Input Cidade de Destino -->
+            <Label Grid.Row="2" Grid.Column="0" Text="Destino:" />
+            <Entry Grid.Row="2" Grid.Column="1" x:Name="txt_destino" Placeholder="Cidade de Destino" Keyboard="Text" />
+
+            <!-- Título DADOS DO VEÍCULO -->
+            <Label Grid.ColumnSpan="2" Grid.Row="3" Grid.Column="0" Text="Dados do Veículo" Style="{StaticResource Titulo}" />
+
+            <!-- Input Distância da Viagem -->
+            <Label Grid.Row="4" Grid.Column="0" Text="Distância:" />
+            <Entry Grid.Row="4" Grid.Column="1" x:Name="txt_distancia" Placeholder="Distância em Km" Keyboard="Text" />
+
+            <!-- Input Consumo do Veículo -->
+            <Label Grid.Row="5" Grid.Column="0" Text="Consumo:" />
+            <Entry Grid.Row="5" Grid.Column="1" x:Name="txt_consumo" Placeholder="Consumo em Km/l" Keyboard="Text" />
+
+            <!-- Input Valor do Combustível -->
+            <Label Grid.Row="6" Grid.Column="0" Text="Combustível:" />
+            <Entry Grid.Row="6" Grid.Column="1" x:Name="txt_valor_combustivel" Placeholder="Valor do Litro" Keyboard="Text" />
+
+            <!-- Título DADOS DOS PEDÁGIOS -->
+            <Label Grid.ColumnSpan="2" Grid.Row="7" Grid.Column="0" Text="Dados dos Pedágios" Style="{StaticResource Titulo}" />
+
+            <!-- Input Valor do Pedágio -->
+            <Label Grid.Row="8" Grid.Column="0" Text="Valor:" />
+            <Grid  Grid.Row="8" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Entry Grid.Row="0" Grid.Column="0" x:Name="txt_valor_pedagio" Placeholder="Valor em R$" Keyboard="Numeric" />
+                <Button Grid.Row="0" Grid.Column="1" Text="Salvar" x:Name="btn_salvar_pedagio" />
+            </Grid>
+            
+            <!-- Botão de Lista de Pedágios -->
+            <Button Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Text="Lista de Pedágios" x:Name="btn_lista_pedagio" />
+            
+            <!-- Botões de Limpar e Calcular -->
+            <Button Grid.Row="10" Grid.Column="0" Text="Limpar" x:Name="btn_limpar_viagem" />
+            <Button Grid.Row="10" Grid.Column="1" Text="Calcular Preço" x:Name="btn_calcular_viagem" />
+        </Grid>
+    </StackLayout>
+
+</ContentPage>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppCustoViagem.App">
+    
+    <Application.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" 
+                    Value="Medium" />
+
+            <Setter Property="HorizontalTextAlignment" 
+                    Value="End" />
+
+            <Setter Property="VerticalOptions" 
+                    Value="Center" />
+        </Style>
+
+        <Style TargetType="Label" x:Key="Titulo">
+            <Setter Property="FontSize"
+                    Value="Title" />
+
+            <Setter Property="HorizontalTextAlignment" 
+                    Value="Center" />
+
+            <Setter Property="BackgroundColor" 
+                    Value="#44f" />
+
+            <Setter Property="TextColor"
+                    Value="#eee" />
+
+            <Setter Property="TextTransform"
+                    Value="Uppercase" />
+
+            <Setter Property="FontAttributes"
+                    Value="Bold" />
+        </Style>
+    </Application.Resources>
+</Application>
