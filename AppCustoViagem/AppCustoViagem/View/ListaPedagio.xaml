@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppCustoViagem.View.ListaPedagio"
+             Title="Lista de Pedágios">
+    <ContentPage.Content>
+        <StackLayout Padding="7">
+            <Label Style="{StaticResource Titulo}" Text="Lista de Pedágios" />
+
+            <ListView x:Name="lst_pedagios">
+                <ListView.Header>
+                    <Grid RowDefinitions="Auto" ColumnDefinitions="0.2*, *, *">
+                        <Label Grid.Row="0" Grid.Column="0" Text="ID" />
+                        <Label Grid.Row="0" Grid.Column="1" Text="Localização" />
+                        <Label Grid.Row="0" Grid.Column="2" Text="Valor" />
+                    </Grid>
+                </ListView.Header>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid RowDefinitions="Auto" 
+                                          ColumnDefinitions="0.2*,*,*">
+
+                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding Id}" />
+                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Localizacao}" />
+                                <Label Grid.Row="0" Grid.Column="2" Text="{Binding Valor}" />
+                                
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
