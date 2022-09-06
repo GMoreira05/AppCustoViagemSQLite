@@ -7,30 +7,35 @@
         <StackLayout Padding="7">
             <Label Style="{StaticResource Titulo}" Text="Lista de Pedágios" />
 
-            <ListView x:Name="lst_pedagios">
-                <ListView.Header>
-                    <Grid RowDefinitions="Auto" ColumnDefinitions="0.2*, *, *">
-                        <Label Grid.Row="0" Grid.Column="0" Text="ID" />
-                        <Label Grid.Row="0" Grid.Column="1" Text="Localização" />
-                        <Label Grid.Row="0" Grid.Column="2" Text="Valor" />
-                    </Grid>
-                </ListView.Header>
+            <RefreshView x:Name="atualizando" IsRefreshing="True" Refreshing="atualizando_Refreshing">
 
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid RowDefinitions="Auto" 
-                                          ColumnDefinitions="0.2*,*,*">
+                <ListView x:Name="lst_pedagios">
+                    <ListView.Header>
+                        <Grid RowDefinitions="Auto" ColumnDefinitions="0.2*, *, *">
+                            <Label Grid.Row="0" Grid.Column="0" Text="ID" />
+                            <Label Grid.Row="0" Grid.Column="1" Text="Localização" />
+                            <Label Grid.Row="0" Grid.Column="2" Text="Valor" />
+                        </Grid>
+                    </ListView.Header>
 
-                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding Id}" />
-                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Localizacao}" />
-                                <Label Grid.Row="0" Grid.Column="2" Text="{Binding Valor}" />
-                                
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid RowDefinitions="Auto" 
+                                              ColumnDefinitions="0.2*,*,*">
+
+                                    <Label Grid.Row="0" Grid.Column="0" Text="{Binding Id}" />
+                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Localizacao}" />
+                                    <Label Grid.Row="0" Grid.Column="2" Text="{Binding Valor}" />
+
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </RefreshView>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

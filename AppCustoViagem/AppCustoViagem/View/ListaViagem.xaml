@@ -12,32 +12,34 @@
         <StackLayout Padding="7">
             <Label Style="{StaticResource Titulo}" Text="Lista de Viagens" />
 
-            <ListView x:Name="lst_pedagios">
-                <ListView.Header>
-                    <Grid RowDefinitions="Auto" ColumnDefinitions="0.2*, *, *, *">
-                        <Label Grid.Row="0" Grid.Column="0" Text="ID" />
-                        <Label Grid.Row="0" Grid.Column="1" Text="Origem" />
-                        <Label Grid.Row="0" Grid.Column="2" Text="Destino" />
-                        <Label Grid.Row="0" Grid.Column="3" Text="Total" />
-                    </Grid>
-                </ListView.Header>
+            <RefreshView x:Name="atualizando" IsRefreshing="True" Refreshing="atualizando_Refreshing">
+                <ListView x:Name="lst_viagens">
+                    <ListView.Header>
+                        <Grid RowDefinitions="Auto" ColumnDefinitions="0.2*, *, *, *">
+                            <Label Grid.Row="0" Grid.Column="0" Text="ID" />
+                            <Label Grid.Row="0" Grid.Column="1" Text="Origem" />
+                            <Label Grid.Row="0" Grid.Column="2" Text="Destino" />
+                            <Label Grid.Row="0" Grid.Column="3" Text="Total" />
+                        </Grid>
+                    </ListView.Header>
 
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid RowDefinitions="Auto" 
-                                          ColumnDefinitions="0.2*,*,*,*">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid RowDefinitions="Auto" 
+                                              ColumnDefinitions="0.2*,*,*,*">
 
-                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding Id}" />
-                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Origem}" />
-                                <Label Grid.Row="0" Grid.Column="2" Text="{Binding Destino}" />
-                                <Label Grid.Row="0" Grid.Column="3" Text="{Binding Total_Viagem}" />
+                                    <Label Grid.Row="0" Grid.Column="0" Text="{Binding Id}" />
+                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Origem}" />
+                                    <Label Grid.Row="0" Grid.Column="2" Text="{Binding Destino}" />
+                                    <Label Grid.Row="0" Grid.Column="3" Text="{Binding Total_Viagem}" />
 
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </RefreshView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -16,5 +16,10 @@ namespace AppCustoViagem.View
         {
             InitializeComponent();
         }
+
+        private void atualizando_Refreshing(object sender, EventArgs e)
+        {
+
+        }
     }
 }

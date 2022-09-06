@@ -78,7 +78,7 @@
 
                 <!-- Botões de Limpar e Calcular -->
                 <Button Grid.Row="11" Grid.Column="0" Text="Limpar" x:Name="btn_limpar_viagem" />
-                <Button Grid.Row="11" Grid.Column="1" Text="Calcular Preço" x:Name="btn_calcular_viagem" />
+                <Button Grid.Row="11" Grid.Column="1" Text="Calcular Preço" x:Name="btn_calcular_viagem" Clicked="btn_calcular_viagem_Clicked" />
             </Grid>
         </StackLayout>
     </ContentPage.Content>
