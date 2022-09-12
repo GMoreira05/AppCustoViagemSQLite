@@ -2,11 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppCustoViagem.View.FormularioPedagio"
-             Title="Editar Pedágio">
+             Title="Novo Pedágio">
     
     <ContentPage.Content>
         <StackLayout Padding="7">
-            <Label Style="{StaticResource Titulo}" Text="Editar Info. do Pedágio" />
+            <Label Style="{StaticResource Titulo}" Text="Informações do Pedágio" />
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -17,7 +17,7 @@
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                
+
                 <!-- Input Localização -->
                 <Label Text="Localização" Grid.Row="0" Grid.Column="0" />
                 <Entry x:Name="txt_Localizacao" Grid.Row="0" Grid.Column="1" Placeholder="Localização" Keyboard="Text" />
@@ -27,7 +27,7 @@
                 <Entry x:Name="txt_Valor" Grid.Row="1" Grid.Column="1" Placeholder="Valor em R$" Keyboard="Numeric" />
                 
                 <!-- Botão de Salvar -->
-                <Button Grid.Row="2" Grid.ColumnSpan="2" x:Name="Btn_SalvarPedagio" Text="Salvar" HorizontalOptions="CenterAndExpand" /> 
+                <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" x:Name="Btn_SalvarPedagio" Text="Salvar" HorizontalOptions="FillAndExpand" Clicked="Btn_SalvarPedagio_Clicked" /> 
             </Grid>
         </StackLayout>
     </ContentPage.Content>

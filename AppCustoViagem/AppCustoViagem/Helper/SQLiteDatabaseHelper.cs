@@ -28,14 +28,28 @@ namespace AppCustoViagem.Helper
             return _db.Table<Viagem>().FirstAsync(i => i.Id == id);
         }
 
-        public Task<int> InsertViagem(Viagem v)
+        public Task<Viagem> InsertViagem(Viagem v)
         {
-            return _db.InsertAsync(v);
+             _db.InsertAsync(v);
+
+            return _db.Table<Viagem>().OrderByDescending(i => i.Id).FirstOrDefaultAsync();
         }
 
         public Task<int> DeleteViagem(int id)
         {
             return _db.Table<Viagem>().DeleteAsync(i => i.Id == id);
+        }
+
+        public Task<List<Pedagio>> GetAllPedagios(int id_viagem)
+        {
+            return _db.Table<Pedagio>().OrderByDescending(i => i.Id_Viagem == id_viagem).ToListAsync();
+        }
+
+        public Task<int> InsertPedagio(Pedagio p)
+        {
+            return _db.InsertAsync(p);
+
+            //return _db.Table<Viagem>().OrderByDescending(i => i.Id).FirstOrDefaultAsync();
         }
     }
 }

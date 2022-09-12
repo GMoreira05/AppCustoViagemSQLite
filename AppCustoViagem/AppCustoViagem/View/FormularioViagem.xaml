@@ -3,6 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppCustoViagem.View.FormularioViagem"
              Title="Custo da Viagem">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Pedágios" x:Name="Btn_ListaPedagios" Clicked="btn_lista_pedagio_Clicked" />
+    </ContentPage.ToolbarItems>
     
     <ContentPage.Content>
         <StackLayout>
@@ -12,10 +16,6 @@
                     <ColumnDefinition Width="2.5*" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
@@ -52,33 +52,9 @@
                 <Label Grid.Row="6" Grid.Column="0" Text="Combustível:" />
                 <Entry Grid.Row="6" Grid.Column="1" x:Name="txt_valor_combustivel" Placeholder="Valor do Litro" Keyboard="Numeric" />
 
-                <!-- Título DADOS DOS PEDÁGIOS -->
-                <Label Grid.ColumnSpan="2" Grid.Row="7" Grid.Column="0" Text="Dados dos Pedágios" Style="{StaticResource Titulo}" />
-
-                <!-- Input Valor do Pedágio -->
-                <Label Grid.Row="8" Grid.Column="0" Text="Cidade:" />
-                <Entry Grid.Row="8" Grid.Column="1" x:Name="txt_cidade_pedagio" Placeholder="Cidade" Keyboard="Text" />
-
-                <Label Grid.Row="9" Grid.Column="0" Text="Valor:" />
-                <Grid  Grid.Row="9" Grid.Column="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-
-                    <Entry Grid.Row="0" Grid.Column="0" x:Name="txt_valor_pedagio" Placeholder="Valor em R$" Keyboard="Numeric" />
-                    <Button Grid.Row="0" Grid.Column="1" Text="Salvar" x:Name="btn_salvar_pedagio" />
-                </Grid>
-
-                <!-- Botão de Lista de Pedágios -->
-                <Button Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" Text="Lista de Pedágios" x:Name="btn_lista_pedagio" Clicked="btn_lista_pedagio_Clicked" />
-
                 <!-- Botões de Limpar e Calcular -->
-                <Button Grid.Row="11" Grid.Column="0" Text="Limpar" x:Name="btn_limpar_viagem" />
-                <Button Grid.Row="11" Grid.Column="1" Text="Calcular Preço" x:Name="btn_calcular_viagem" Clicked="btn_calcular_viagem_Clicked" />
+                <Button Grid.Row="7" Grid.Column="0" Text="Limpar" x:Name="btn_limpar_viagem" Clicked="btn_limpar_viagem_Clicked" />
+                <Button Grid.Row="7" Grid.Column="1" Text="Calcular Preço" x:Name="btn_calcular_viagem" Clicked="btn_calcular_viagem_Clicked" />
             </Grid>
         </StackLayout>
     </ContentPage.Content>
