@@ -17,19 +17,19 @@ namespace AppCustoViagem.View
     {
         ObservableCollection<Pedagio> pedagios = new ObservableCollection<Pedagio>();
 
-        Viagem v;
+        Viagem v = new Viagem();
 
-        public ListaPedagio()
+        public ListaPedagio(Viagem viagem_selecionada)
         {
+            v = viagem_selecionada;
+
             InitializeComponent();
 
             lst_pedagios.ItemsSource = pedagios;
-
-            v = BindingContext as Viagem;
         }
 
         protected override void OnAppearing()
-        {
+        {            
             if (pedagios.Count == 0)
             {
                 System.Threading.Tasks.Task.Run(async () =>
@@ -51,28 +51,31 @@ namespace AppCustoViagem.View
         {
             try
             {
-                List<Pedagio> temp = await App.Database.GetAllPedagios(v.Id);
-
-                pedagios = new ObservableCollection<Pedagio>();
-
-                foreach (Pedagio item in temp)
+                await System.Threading.Tasks.Task.Run(async () =>
                 {
-                    pedagios.Add(item);
-                }
+                    List<Pedagio> temp = await App.Database.GetAllPedagios(v.Id);
+                    
+                    ObservableCollection<Pedagio> pedagios = new ObservableCollection<Pedagio>();
+
+                    foreach (Pedagio item in temp)
+                    {
+                        pedagios.Add(item);
+                    }
+                });
+
+                lst_pedagios.ItemsSource = pedagios;
+
                 atualizando.IsRefreshing = false;
-            }
-            catch (Exception ex)
+            }catch(Exception ex)
             {
                 await DisplayAlert("Erro", ex.Message, "Ok");
             }
+            
         }
 
         private void Btn_NovoPedagio_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new FormularioPedagio
-            {
-                BindingContext = v
-            });
+            Navigation.PushAsync(new FormularioPedagio(v));
         }
     }
 }

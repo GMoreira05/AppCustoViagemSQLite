@@ -42,14 +42,12 @@ namespace AppCustoViagem.Helper
 
         public Task<List<Pedagio>> GetAllPedagios(int id_viagem)
         {
-            return _db.Table<Pedagio>().OrderByDescending(i => i.Id_Viagem == id_viagem).ToListAsync();
+            return _db.Table<Pedagio>().OrderByDescending(i => i.Id).ToListAsync();
         }
 
         public Task<int> InsertPedagio(Pedagio p)
         {
             return _db.InsertAsync(p);
-
-            //return _db.Table<Viagem>().OrderByDescending(i => i.Id).FirstOrDefaultAsync();
         }
     }
 }
