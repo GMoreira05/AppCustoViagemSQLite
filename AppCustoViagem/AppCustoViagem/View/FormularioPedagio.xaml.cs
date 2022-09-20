@@ -27,13 +27,20 @@ namespace AppCustoViagem.View
 
         private async void Btn_SalvarPedagio_Clicked(object sender, EventArgs e)
         {
-            Pedagio p = new Pedagio();
-            p.Localizacao = txt_Localizacao.Text;
-            p.Valor = Convert.ToDouble(txt_Valor.Text);
-            p.Id_Viagem = v.Id;
+            try
+            {
+                Pedagio p = new Pedagio();
+                p.Localizacao = txt_Localizacao.Text;
+                p.Valor = Convert.ToDouble(txt_Valor.Text);
+                p.Id_Viagem = v.Id;
 
-            await App.Database.InsertPedagio(p);
-            await Navigation.PopAsync();
+                await App.Database.InsertPedagio(p);
+                await Navigation.PopAsync();
+            }catch (Exception ex)
+            {
+                await DisplayAlert("Erro", ex.Message, "Ok");
+            }
+            
         }
     }
 }

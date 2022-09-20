@@ -67,5 +67,29 @@ namespace AppCustoViagem.View
                 await DisplayAlert("Erro", ex.Message, "Ok");
             }
         }
+
+        private async void MenuItem_Clicked(object sender, EventArgs e)
+        {
+            MenuItem disparador = (MenuItem)sender;
+
+            Viagem v = (Viagem)disparador.BindingContext;
+
+            bool confirmacao = await DisplayAlert("Tem Certeza?", "Tem certeza de que quer excluir essa viagem?", "Sim", "Não");
+
+            if (confirmacao)
+            {
+                await App.Database.DeleteViagem(v.Id);
+
+                atualizando.IsRefreshing = true;
+                atualizando.IsRefreshing = false;
+            }
+        }
+
+        private async void MenuItem_Clicked_1(object sender, EventArgs e)
+        {
+            MenuItem disparador = (MenuItem)sender;
+
+            Viagem v = (Viagem)disparador.BindingContext;
+        }
     }
 }
